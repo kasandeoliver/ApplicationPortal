@@ -1,182 +1,140 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <!-- basic setup, same as the login page so both pages behave the same -->
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <!-- meta tags for this page -->
-    <meta
-      name="description"
-      content="Create your MUST Online Application Portal account to start applying to Mbarara University of Science and Technology."
-    />
-    <meta name="author" content="Byamugisha Alban" />
+<head>
+  <!-- basic setup, same as the login page so both pages behave the same -->
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <!-- Open Graph for nice previews when the link is shared -->
-    <meta
-      property="og:title"
-      content="Create Account | MUST Online Application Portal"
-    />
-    <meta
-      property="og:description"
-      content="Create your account and get a temporary password by email."
-    />
-    <meta property="og:type" content="website" />
-    <meta
-      property="og:image"
-      content="https://albanbyamugisha.github.io/must-portal/images/must_logo.png"
-    />
-    <meta
-      property="og:url"
-      content="https://albanbyamugisha.github.io/must-portal/signup.html"
-    />
+  <!-- meta tags for this page -->
+  <meta name="description"
+    content="Create your MUST Online Application Portal account to start applying to Mbarara University of Science and Technology." />
+  <meta name="author" content="kasande oliver" />
 
-    <title>Create Account | MUST Online Application Portal</title>
+  <!-- Open Graph for nice previews when the link is shared -->
+  <meta property="og:title" content="Create Account | MUST Online Application Portal" />
+  <meta property="og:description" content="Create your account and get a temporary password by email." />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="https://kasandeoliver.github.io/must-portal/images/must_logo.png" />
+  <meta property="og:url" content="https://kasandeoliver.github.io/must-portal/signup.html" />
 
-    <!-- fonts from google -->
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Poppins:wght@600;700&display=swap"
-      rel="stylesheet"
-    />
+  <title>Create Account | MUST Online Application Portal</title>
 
-    <!-- one stylesheet shared by both pages so I don't repeat myself -->
-    <link rel="stylesheet" href="css/style.css" />
-  </head>
-  <body>
-    <div class="layout">
-      <!-- LEFT SIDE: same brand panel as the login page so the two screens match -->
-      <aside class="brand-panel">
-        <header>
-          <div class="logo">
-            <img
-              src="images/must_logo.png"
-              alt="Mbarara University of Science and Technology crest"
-              class="crest-img"
-              width="56"
-              height="56"
-            />
-            <p>Mbarara University of<br />Science and Technology</p>
-          </div>
+  <!-- fonts from google -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Poppins:wght@600;700&display=swap"
+    rel="stylesheet" />
 
-          <!-- this time Create account is the current page -->
-          <nav class="main-nav" aria-label="Main navigation">
-            <a href="index.html">Login</a>
-            <a href="signup.html" aria-current="page">Create account</a>
-          </nav>
-        </header>
+  <!-- one stylesheet shared by both pages so I don't repeat myself -->
+  <link rel="stylesheet" href="css/style.css" />
+</head>
 
-        <section>
-          <h1>Start your application.</h1>
-          <p class="tagline">
-            It only takes a minute to get your account ready.
-          </p>
-
-          <!-- steps changed a bit because the user is on step 1 here -->
-          <ol class="steps">
-            <li>Fill in your details on this page</li>
-            <li>We send a temporary password to your email</li>
-            <li>Log in and complete the application form</li>
-            <li>Pay the application fee at the bank</li>
-          </ol>
-        </section>
-
-        <footer>
-          <p>&copy; 2026 Mbarara University of Science and Technology</p>
-          <p>
-            Need help?
-            <a href="mailto:admissions@must.ac.ug"
-              >Email admissions@must.ac.ug</a
-            >
-          </p>
-        </footer>
-      </aside>
-
-      <!-- RIGHT SIDE: the sign up form inside main -->
-      <main class="form-panel">
-        <div class="form-box">
-          <h2>Create account</h2>
-          <p class="subtitle">
-            Give us your details and we will send you a temporary password.
-          </p>
-
-          <!-- novalidate = browser popups off, JavaScript checks instead -->
-          <form id="signupForm" novalidate>
-            <!-- the real portal splits the name into surname and other names, so I did the same -->
-            <label for="surname">Surname</label>
-            <input
-              type="text"
-              id="surname"
-              placeholder="e.g. Byamugisha"
-              required
-            />
-            <span class="error" id="surnameError"></span>
-
-            <label for="otherNames">Other names</label>
-            <input
-              type="text"
-              id="otherNames"
-              placeholder="e.g. Alban"
-              required
-            />
-            <span class="error" id="otherNamesError"></span>
-
-            <!-- phone has two parts: country code dropdown and the number -->
-            <label for="phone">Phone number</label>
-            <div class="phone-row">
-              <!-- every input needs a label, this one is hidden on screen but screen readers still read it -->
-              <label for="countryCode" class="visually-hidden"
-                >Country code</label
-              >
-              <select id="countryCode">
-                <option value="+256">Uganda (+256)</option>
-                <option value="+254">Kenya (+254)</option>
-                <option value="+255">Tanzania (+255)</option>
-                <option value="+250">Rwanda (+250)</option>
-                <option value="+257">Burundi (+257)</option>
-                <option value="+211">South Sudan (+211)</option>
-                <option value="+243">DR Congo (+243)</option>
-              </select>
-              <input type="tel" id="phone" placeholder="0770000000" required />
-            </div>
-            <p class="hint">
-              Use a phone number that is active so you can get notifications.
-            </p>
-            <span class="error" id="phoneError"></span>
-
-            <label for="email">Email address</label>
-            <input
-              type="email"
-              id="email"
-              placeholder="myemail@gmail.com"
-              required
-            />
-            <!-- link text says where it goes (not "click here"), opens in a new tab so the form is not lost -->
-            <p class="hint">
-              No email yet?
-              <a
-                href="https://accounts.google.com/signup"
-                target="_blank"
-                rel="noopener"
-                >Create a free Gmail address</a
-              >
-            </p>
-            <span class="error" id="emailError"></span>
-
-            <button type="submit" class="btn-primary">Create account</button>
-          </form>
-
-          <!-- hidden until the form passes all the checks -->
-          <p class="success" id="successMessage"></p>
-
-          <p class="divider">Already have an account?</p>
-          <a href="index.html" class="btn-secondary">Back to login</a>
+<body>
+  <div class="layout">
+    <!-- LEFT SIDE: same brand panel as the login page so the two screens match -->
+    <aside class="brand-panel">
+      <header>
+        <div class="logo">
+          <img src="images/must_logo.png" alt="Mbarara University of Science and Technology crest" class="crest-img"
+            width="56" height="56" />
+          <p>Mbarara University of<br />Science and Technology</p>
         </div>
-      </main>
-    </div>
 
-    <!-- script at the bottom so the page loads first -->
-    <script src="js/script.js"></script>
-  </body>
+        <!-- this time Create account is the current page -->
+        <nav class="main-nav" aria-label="Main navigation">
+          <a href="index.html">Login</a>
+          <a href="signup.html" aria-current="page">Create account</a>
+        </nav>
+      </header>
+
+      <section>
+        <h1>Start your application.</h1>
+        <p class="tagline">
+          It only takes a minute to get your account ready.
+        </p>
+
+        <!-- steps changed a bit because the user is on step 1 here -->
+        <ol class="steps">
+          <li>Fill in your details on this page</li>
+          <li>We send a temporary password to your email</li>
+          <li>Log in and complete the application form</li>
+          <li>Pay the application fee at the bank</li>
+        </ol>
+      </section>
+
+      <footer>
+        <p>&copy; 2026 Mbarara University of Science and Technology</p>
+        <p>
+          Need help?
+          <a href="mailto:admissions@must.ac.ug">Email admissions@must.ac.ug</a>
+        </p>
+      </footer>
+    </aside>
+
+    <!-- RIGHT SIDE: the sign up form inside main -->
+    <main class="form-panel">
+      <div class="form-box">
+        <h2>Create account</h2>
+        <p class="subtitle">
+          Give us your details and we will send you a temporary password.
+        </p>
+
+        <!-- novalidate = browser popups off, JavaScript checks instead -->
+        <form id="signupForm" novalidate>
+          <!-- the real portal splits the name into surname and other names, so I did the same -->
+          <label for="surname">Surname</label>
+          <input type="text" id="surname" placeholder="e.g. kasande" required />
+          <span class="error" id="surnameError"></span>
+
+          <label for="otherNames">Other names</label>
+          <input type="text" id="otherNames" placeholder="e.g. oliver" required />
+          <span class="error" id="otherNamesError"></span>
+
+          <!-- phone has two parts: country code dropdown and the number -->
+          <label for="phone">Phone number</label>
+          <div class="phone-row">
+            <!-- every input needs a label, this one is hidden on screen but screen readers still read it -->
+            <label for="countryCode" class="visually-hidden">Country code</label>
+            <select id="countryCode">
+              <option value="+256">Uganda (+256)</option>
+              <option value="+254">Kenya (+254)</option>
+              <option value="+255">Tanzania (+255)</option>
+              <option value="+250">Rwanda (+250)</option>
+              <option value="+257">Burundi (+257)</option>
+              <option value="+211">South Sudan (+211)</option>
+              <option value="+243">DR Congo (+243)</option>
+            </select>
+            <input type="tel" id="phone" placeholder="07789000000" required />
+          </div>
+          <p class="hint">
+            Use a phone number that is active so you can get notifications.
+          </p>
+          <span class="error" id="phoneError"></span>
+
+          <label for="email">Email address</label>
+          <input type="email" id="email" placeholder="myemail@gmail.com" required />
+          <!-- link text says where it goes (not "click here"), opens in a new tab so the form is not lost -->
+          <p class="hint">
+            No email yet?
+            <a href="https://accounts.google.com/signup" target="_blank" rel="noopener">Create a free Gmail address</a>
+          </p>
+          <span class="error" id="emailError"></span>
+
+          <button type="submit" class="btn-primary">Create account</button>
+        </form>
+
+        <!-- hidden until the form passes all the checks -->
+        <p class="success" id="successMessage"></p>
+
+        <p class="divider">Already have an account?</p>
+        <a href="index.html" class="btn-secondary">Back to login</a>
+      </div>
+    </main>
+  </div>
+
+  <!-- script at the bottom so the page loads first -->
+  <script src="js/script.js"></script>
+</body>
+
 </html>
