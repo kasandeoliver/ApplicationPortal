@@ -1,0 +1,146 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- encoding first, UTF-8 so every language works -->
+    <meta charset="UTF-8" />
+    <!-- without this phones show a tiny zoomed out desktop page -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- meta tags from the lecture: description (kept under 160 characters) and author -->
+    <meta
+      name="description"
+      content="Log in to the MUST Online Application Portal to continue your application to Mbarara University of Science and Technology."
+    />
+    <meta name="author" content="Byamugisha Alban" />
+
+    <!-- Open Graph so the link looks neat when shared on WhatsApp, the image will work once GitHub Pages is on -->
+    <meta
+      property="og:title"
+      content="Login | MUST Online Application Portal"
+    />
+    <meta
+      property="og:description"
+      content="Apply to Mbarara University of Science and Technology online."
+    />
+    <meta property="og:type" content="website" />
+    <meta
+      property="og:image"
+      content="https://albanbyamugisha.github.io/must-portal/images/must_logo.png"
+    />
+    <meta
+      property="og:url"
+      content="https://albanbyamugisha.github.io/must-portal/"
+    />
+
+    <title>Login | MUST Online Application Portal</title>
+
+    <!-- google fonts, Poppins for headings and Inter for normal text -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Poppins:wght@600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- same stylesheet as the sign up page -->
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+    <div class="layout">
+      <!-- LEFT SIDE: brand panel, an aside because it supports the main content (the form) -->
+      <aside class="brand-panel">
+        <!-- header holds the logo and the menu, like in the lecture -->
+        <header>
+          <div class="logo">
+            <!-- real crest, alt text describes it for screen readers, width and height stop the page jumping while it loads -->
+            <img
+              src="images/must_logo.png"
+              alt="Mbarara University of Science and Technology crest"
+              class="crest-img"
+              width="56"
+              height="56"
+            />
+            <p>Mbarara University of<br />Science and Technology</p>
+          </div>
+
+          <!-- nav = set of links, aria-current marks the page the user is on -->
+          <nav class="main-nav" aria-label="Main navigation">
+            <a href="index.html" aria-current="page">Login</a>
+            <a href="signup.html">Create account</a>
+          </nav>
+        </header>
+
+        <!-- section because the intro and steps form one block with its own heading -->
+        <section>
+          <h1>Your future starts here.</h1>
+          <p class="tagline">Apply to MUST online in four simple steps.</p>
+
+          <!-- ordered list because the steps must be done in order -->
+          <ol class="steps">
+            <li>Create your account</li>
+            <li>Log in with your temporary password</li>
+            <li>Fill in and submit the application form</li>
+            <li>Pay the application fee at the bank</li>
+          </ol>
+        </section>
+
+        <!-- footer with a mailto link, the email comes from the official application guide -->
+        <footer>
+          <p>&copy; 2026 Mbarara University of Science and Technology</p>
+          <p>
+            Need help?
+            <a href="mailto:admissions@must.ac.ug"
+              >Email admissions@must.ac.ug</a
+            >
+          </p>
+        </footer>
+      </aside>
+
+      <!-- RIGHT SIDE: main = the primary content of the page, only one per page -->
+      <main class="form-panel">
+        <div class="form-box">
+          <h2>Welcome back</h2>
+          <p class="subtitle">Log in to access your application dashboard.</p>
+
+          <!-- novalidate turns off the browser popups, my JavaScript does the checking -->
+          <form id="loginForm" novalidate>
+            <label for="email">Email address</label>
+            <input
+              type="email"
+              id="email"
+              placeholder="name@example.com"
+              required
+            />
+            <span class="error" id="emailError"></span>
+
+            <label for="password">Password</label>
+            <!-- wrapper so the Show button can sit inside the box -->
+            <div class="password-wrap">
+              <input
+                type="password"
+                id="password"
+                placeholder="Enter your password"
+                required
+              />
+              <button type="button" id="togglePassword">Show</button>
+            </div>
+            <span class="error" id="passwordError"></span>
+
+            <button type="submit" class="btn-primary">Sign in</button>
+          </form>
+
+          <!-- hidden until the form passes the checks -->
+          <p class="success" id="loginMessage"></p>
+
+          <a href="mailto:admissions@must.ac.ug?subject=Password%20help" class="forgot">Forgot your password? Email admissions</a>
+
+          <p class="divider">New to the portal?</p>
+          <a href="signup.html" class="btn-secondary">Create account</a>
+        </div>
+      </main>
+    </div>
+
+    <!-- script at the bottom so the page loads before the code runs -->
+    <script src="js/script.js"></script>
+  </body>
+</html>
